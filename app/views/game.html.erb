@@ -1,0 +1,25 @@
+<h1>Hi Lo Game</h1>
+
+<h4>Hello <%= session[:user] %></h4>
+
+<form method="get" action="game">
+  <input type="text" name="user" placeholder="Enter your name">
+  <input type="submit" value="Save Name">
+</form>
+
+<div>Current guess: <%= params[:number] %></div>
+<div>Your guess is <%= @message %></div>
+<div>Number of Guesses: <%= @counter %></div>
+<div>Secret: <%= @secret %></div>
+
+
+<form method="get" action="game">
+  <input type="number" name="number" placeholder="Enter your guess">
+  <input type="submit" value="Guess A Number">
+</form>
+
+
+
+<form method="get" action="new_game">
+  <input type="submit" value="Reset Game">
+</form>
