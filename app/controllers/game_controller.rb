@@ -2,6 +2,7 @@ class GameController < ApplicationController
 
   def try
     session[:user] = params[:user] if session[:user].nil?
+    cookies[:wincount] = 0 if cookies[:wincount].nil?
     if params[:number].to_i > get_secret.to_i
       @message = "high, guess again"
       @counter = get_counter
@@ -11,6 +12,8 @@ class GameController < ApplicationController
     else
       @message = "spot on! You win."
       @counter = get_counter
+      cookies[:wincount] = cookies[:wincount].to_i + 1
+      cookies[:player] = session[:user]
     end
     render "/game.html.erb"
   end
@@ -23,12 +26,8 @@ class GameController < ApplicationController
 
   private
   def get_secret
-    if session[:secret] == nil
-      session[:secret] = rand(0..100)
-      @secret = session[:secret]
-    else
-      @secret = session[:secret]
-    end
+    session[:secret] = rand(0..100) if session[:secret] == nil
+    @secret = session[:secret]
   end
 
   def get_counter
