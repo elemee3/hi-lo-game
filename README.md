@@ -1,24 +1,12 @@
-# README
+## Hi-Lo Game
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Play this guessing game by first entering your name and a starting guess. The game will direct you if your guess was too high or too low. Continue guessing until you get the correct number.
 
-Things you may want to cover:
+## To Install Locally
 
-* Ruby version
+Built with Ruby on Rails
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. Clone repository onto your machine
+2. Open terminal at root of repository, run 'bundle install'
+3. Run 'rails s' to launch
+4. Open browser and go to 'localhost:3000'

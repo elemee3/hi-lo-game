@@ -2,6 +2,7 @@
 
 <h4>Hello <%= session[:user] %></h4>
 
+<!-- TODO: save user value in-between resets -->
 <% if session[:user].nil? %>
   <form method="get" action="game">
     <input type="text" name="user" placeholder="Enter your name">
@@ -9,43 +10,22 @@
   </form>
 <% end %>
 
+<br/>
+
+<h4>Guess a number between 1-100</h4>
 <div>Current guess: <%= params[:number] %></div>
 <div>Your guess is <%= @message %></div>
 <div>Number of Guesses: <%= @counter %></div>
-<div>Secret: <%= @secret %></div>
 
+<br/>
 
 <form method="get" action="game">
   <input type="number" name="number" placeholder="Enter your guess">
   <input type="submit" value="Guess">
 </form>
 
+<br/>
 
 <form method="get" action="new_game">
   <input type="submit" value="Reset Game">
 </form>
-
-<div>
-  <h4>High Scores</h4>
-  <table>
-    <tr>
-      <th>Name</th>
-      <th>Win Count</th>
-    </tr>
-
-    <tr>
-      <td><%= cookies[:player] %></td>
-      <td><%= cookies[:wincount] %></td>
-    </tr>
-
-    <tr>
-      <td>Second Place</td>
-      <td>Score2</td>
-    </tr>
-
-    <tr>
-      <td>Third Place</td>
-      <td>Score3</td>
-    </tr>
-  </table>
-</div>
